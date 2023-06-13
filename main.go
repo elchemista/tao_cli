@@ -13,6 +13,7 @@ var unsaveKeyFlag = flag.String("unsave", "", "OpenAI API key (won't be saved)")
 var promptFlag = flag.String("prompt", "", "Prompt for OpenAI API")
 var dirFlag = flag.String("dir", "", "Directory for .key file")
 var helpFlag = flag.Bool("help", false, "Show help message")
+var aggresive = flag.Bool("aggresive-mod", false, "Aggresive Tao mod")
 
 func main() {
 	flag.Parse()
@@ -34,6 +35,11 @@ func main() {
 
 	if *keyFlag != "" {
 		saveAPIKey(*keyFlag, dir)
+	}
+
+	if *aggresive {
+		fmt.Println("Ma fatti i cazzi tuoi.. Ti bruccio server!")
+		os.Exit(0)
 	}
 
 	var key string
